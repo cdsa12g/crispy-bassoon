@@ -1,0 +1,251 @@
+/* style.css */
+:root {
+    --pink: #f7a8f1;
+    --dark: #5d4037;
+    --light-pink: #fff0fe;
+    --accent: #ffc1f7;
+}
+
+body {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    background-color: var(--pink);
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+header, footer {
+    background: #fff;
+    padding: 15px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: var(--dark);
+}
+
+.logo-img {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    margin-right: 12px;
+}
+
+.logo-text {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 700;
+}
+
+nav a {
+    margin-left: 25px;
+    text-decoration: none;
+    color: var(--dark);
+    font-weight: 700;
+    font-size: 13px;
+    text-transform: uppercase;
+}
+
+/* АНИМАЦИЯ ПОЯВЛЕНИЯ РОЗ СПРАВА */
+@keyframes slideInRight {
+    0% { transform: translateX(150px); opacity: 0; }
+    100% { transform: translateX(0); opacity: 1; }
+}
+
+.hero { 
+    display: flex; 
+    justify-content: space-around; 
+    align-items: center; 
+    padding: 60px 10%; 
+}
+
+.hero-text h1 { font-size: 52px; text-transform: uppercase; line-height: 1.1; margin: 0; }
+.hero-text p { font-size: 24px; margin: 15px 0; }
+
+.hero-image {
+    animation: slideInRight 1.5s ease-out;
+}
+
+.animated-roses {
+    width: 450px;
+    height: auto;
+    border-radius: 200px 0 0 200px;
+    display: block;
+}
+
+.catalog-title {
+    text-align: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 64px;
+    margin: 50px 0;
+    letter-spacing: 8px;
+    text-transform: uppercase;
+}
+
+/* Каталог */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 30px;
+    padding: 0 10% 80px 10%;
+}
+
+.grid-item { display: flex; flex-direction: column; align-items: center; }
+
+.item-box { 
+    width: 100%; 
+    aspect-ratio: 1/1; 
+    background: var(--accent); 
+    border-radius: 30px; 
+    border: 2px solid #fff; 
+    margin-bottom: 15px;
+    transition: 0.3s;
+    overflow: hidden;
+}
+
+.item-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.grid-item:hover .item-box { transform: scale(1.05); }
+
+.item-name { font-weight: 700; font-size: 18px; margin-bottom: 10px; text-transform: uppercase; }
+.btn-order { 
+    background: #fff; 
+    color: var(--dark); 
+    padding: 10px 25px; 
+    border-radius: 20px; 
+    text-decoration: none; 
+    font-size: 12px; 
+    font-weight: 700; 
+    text-transform: uppercase; 
+}
+
+/* === ФОТО МАГАЗИНА НА ГЛАВНОЙ === */
+.store-section {
+    padding: 0 10% 80px 10%;
+}
+
+.store-photos-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.store-photo-box {
+    width: 100%;
+    border-radius: 25px;
+    overflow: hidden;
+    border: 3px solid #fff;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+
+.store-photo-box img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    display: block;
+}
+
+.photo-caption {
+    display: block;
+    background: #fff;
+    color: var(--dark);
+    padding: 15px;
+    font-size: 14px;
+    font-weight: 700;
+    text-align: center;
+}
+
+/* Страница Заказать */
+.order-container { max-width: 700px; margin: 50px auto; background: #fff; padding: 50px; border-radius: 50px; color: var(--dark); }
+.bouquet-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; margin: 20px 0; }
+.bouquet-grid input { display: none; }
+.bouquet-card { 
+    background: var(--light-pink); 
+    padding: 15px; 
+    border-radius: 15px; 
+    text-align: center; 
+    cursor: pointer; 
+    font-weight: 700; 
+    border: 2px solid transparent; 
+}
+.bouquet-grid input:checked + .bouquet-card { background: var(--pink); color: #fff; border-color: var(--dark); }
+
+input[type="text"], input[type="tel"] { width: 100%; padding: 15px; margin: 10px 0 25px 0; border: 2px solid var(--light-pink); border-radius: 15px; box-sizing: border-box; font-size: 16px; }
+.btn-submit { width: 100%; background: var(--dark); color: #fff; padding: 20px; border-radius: 15px; font-size: 18px; font-weight: 700; cursor: pointer; border: none; text-transform: uppercase; }
+
+/* Страница Адрес */
+.address-content { display: flex; max-width: 1100px; margin: 60px auto; gap: 40px; }
+.info-box { flex: 1; background: #fff; color: var(--dark); padding: 60px; border-radius: 50px; }
+.info-box h1 { font-family: 'Playfair Display', serif; font-size: 48px; margin: 0 0 30px 0; }
+.info-box p { font-size: 24px; margin: 20px 0; line-height: 1.4; }
+
+.map-box {
+    flex: 1.2;
+    height: 500px;
+    background: #fff;
+    border-radius: 50px;
+    border: 5px solid #fff;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.map-box iframe {
+    width: 100%;
+    height: 100%;
+    filter: contrast(1.1);
+}
+
+/* === ТЕЛЕФОН И КНОПКА "ПОЗВОНИТЬ" === */
+.phone-details {
+    margin-top: 25px;
+}
+
+.phone-details summary {
+    font-size: 24px;
+    cursor: pointer;
+    list-style: none;
+    outline: none;
+    user-select: none;
+}
+
+.phone-details summary::-webkit-details-marker {
+    display: none;
+}
+.phone-details summary::marker {
+    display: none;
+}
+
+.call-btn {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 14px 32px;
+    background: var(--dark);
+    color: #fff;
+    text-decoration: none;
+    border-radius: 20px;
+    font-weight: 700;
+    font-size: 14px;
+    text-transform: uppercase;
+    transition: 0.3s;
+}
+
+.call-btn:hover {
+    background: #4e342e;
+    transform: scale(1.05);
+}
